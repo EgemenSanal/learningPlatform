@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import styles from '../assets/Admin.module.css';
+
 
 function Admin() {
     const [teacherData, setTeacherData] = useState([]);
@@ -109,7 +111,12 @@ function Admin() {
                     <ul>
                         {studentData.length > 0 ? (
                             studentData.map((student, index) => (
-                                <li key={index}>{JSON.stringify(student)}</li>
+                                <li key={index}>
+                                    <p><strong>İsim:</strong> {student.name}</p>
+                                    <p><strong>Bölüm:</strong> {student.department}</p>
+                                    <p><strong>Sınıf:</strong> {student.grade}</p>
+                                    <p><strong>Email:</strong> {student.email}</p>
+                                </li>
                             ))
                         ) : (
                             <p>Öğrenci verisi yok.</p>
@@ -124,7 +131,12 @@ function Admin() {
                     <ul>
                         {teacherData.length > 0 ? (
                             teacherData.map((teacher, index) => (
-                                <li key={index}>{JSON.stringify(teacher)}</li>
+                                <li key={index}>
+                                    <p><strong>İsim:</strong> {teacher.name}</p>
+                                    <p><strong>Uzmanlık:</strong> {teacher.profession}</p>
+                                    <p><strong>Email:</strong> {teacher.email}</p>
+                                    <p><strong>Lokasyon:</strong> {teacher.location}</p>
+                                </li>
                             ))
                         ) : (
                             <p>Öğretmen verisi yok.</p>
@@ -139,7 +151,12 @@ function Admin() {
                     <ul>
                         {ilanData.length > 0 ? (
                             ilanData.map((ilan, index) => (
-                                <li key={index}>{JSON.stringify(ilan)}</li>
+                                <li key={index}>
+                                    <p><strong>Fiyat:</strong> {Math.round(ilan.price)}₺</p>
+                                    <p><strong>Uzmanlık:</strong> {ilan.profession}</p>
+                                    <p><strong>Lokasyon:</strong> {ilan.location}</p>
+                                    <p><strong>Ders:</strong> {ilan.lesson}</p>
+                                </li>
                             ))
                         ) : (
                             <p>İlan verisi yok.</p>
@@ -147,6 +164,7 @@ function Admin() {
                     </ul>
                 </>
             )}
+
         </div>
     );
 }
