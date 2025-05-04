@@ -11,19 +11,19 @@ function Admin() {
     const navigate = useNavigate();
 
     //admin kontrolü
-/*
-    useEffect(() => {
-        const adminController = () => {
-            const role = localStorage.getItem('role');
-            if (role !== "admin") {
-                navigate("/login");
-            }
-        };
-        adminController();
-    }, [navigate]);
-*/
+    /*
+        useEffect(() => {
+            const adminController = () => {
+                const role = localStorage.getItem('role');
+                if (role !== "admin") {
+                    navigate("/login");
+                }
+            };
+            adminController();
+        }, [navigate]);
+    */
 
-//admim logout işemi
+    //admim logout işemi
     const adminLogout = () => {
         localStorage.removeItem('token');
         localStorage.removeItem('role');
@@ -102,7 +102,7 @@ function Admin() {
             <button onClick={getIlan}>İlanları Getir</button>
             <button onClick={adminLogout}>Çıkış Yap</button>
             <button onClick={deleteData}>Verileri Sil</button>
-            
+
             {activeTab === "students" && (
                 <>
                     <h2>Öğrenciler</h2>
@@ -117,7 +117,7 @@ function Admin() {
                     </ul>
                 </>
             )}
-            
+
             {activeTab === "teachers" && (
                 <>
                     <h2>Öğretmenler</h2>
@@ -132,7 +132,7 @@ function Admin() {
                     </ul>
                 </>
             )}
-            
+
             {activeTab === "ilan" && (
                 <>
                     <h2>İlanlar</h2>
